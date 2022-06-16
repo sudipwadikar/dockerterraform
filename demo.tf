@@ -130,8 +130,6 @@ resource "aws_key_pair" "demokey" {
   public_key = "${file(var.public_key)}"
 }
 
-# Creating Instances
-resource "aws_instance" "Demo-Instance" {
   # SSH into instance 
   connection {
     # The default username for our AMI
@@ -157,4 +155,4 @@ resource "aws_instance" "Demo-Instance" {
       "docker run -d ubuntu sleep 300"   
   ]
  }
-}
+
