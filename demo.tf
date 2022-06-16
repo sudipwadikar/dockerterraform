@@ -1,19 +1,13 @@
-# Configure and downloading plugins for aws
 provider "aws" {
-  #access_key = "${var.access_key}"
-  #secret_key = "${var.secret_key}"
   region     = "${var.aws_region}"
-}  
-  # SSH into instance 
+}
+
+resource "aws_instance" "Demo-Instance" {
   connection {
-    # The default username for our AMI
-    user = "ec2-user"
-    # Private key for connection
-    private_key = "${file(var.private_key)}"
-    # Type of connection
-    type = "ssh"
+    type     = "ssh"
+    user     = "ec2-user"
+    private_key = "${file(var.private_key)}
   }
-  
   # Installing splunk & creating distributed indexer clustering on newly created instance
   provisioner "remote-exec" {
     inline = [
