@@ -193,6 +193,6 @@ resource "aws_instance" "demoinstance1" {
   #    "docker pull ubuntu",
   #    "docker run -d ubuntu sleep 300"   
   #]
- }
+ #}
 }
 
