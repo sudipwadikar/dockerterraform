@@ -132,44 +132,6 @@ resource "aws_key_pair" "demokey" {
 
 # Creating Instances
 resource "aws_instance" "Demo-Instance" {
-
-  # AMI based on region 
-  ami = "${lookup(var.ami, var.aws_region)}"
-
-  # Launching instance into subnet 
-  subnet_id = "${aws_subnet.demosubnet.id}"
-
-  # Instance type 
-  instance_type = "${var.instancetype}"
-  
-  # Count of instance
-  count= 1
-  
-  # SSH key that we have generated above for connection
-  key_name = "${aws_key_pair.demokey.id}"
-
-  # Attaching security group to our instance
-  vpc_security_group_ids = ["${aws_security_group.demosg.id}"]
-
-  # Attaching Tag to Instance 
-  tags = {
-    Name = "Demo-Instance"
-  }
-   
-  # Root Block Storage
-  root_block_device {
-    volume_size = "40"
-    volume_type = "standard"
-  }
-  
-  #EBS Block Storage
-  ebs_block_device {
-    device_name = "/dev/sdb"
-    volume_size = "80"
-    volume_type = "standard"
-    delete_on_termination = false
-  }
-  
   # SSH into instance 
   connection {
     # The default username for our AMI
