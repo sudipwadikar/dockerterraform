@@ -12,14 +12,10 @@ provider "aws" {
 # Creating Security Group
 # Creating key pair
 # Creating Instances
-resource "aws_instance" "demoinstance1" {
-  # SSH into instance 
+#resource "aws_instance" "demoinstance1" {
   connection {
-    # The default username for our AMI
     user = "ec2-user"
-    # Private key for connection
     private_key = "${file(var.private_key)}"
-    # Type of connection
     type = "ssh"
     host = "Demo-Instance"
   }
