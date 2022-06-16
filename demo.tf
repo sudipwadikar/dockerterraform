@@ -28,5 +28,5 @@ provider "aws" {
       "docker run -d ubuntu sleep 300"   
   ]
  }     
-}
+
 
