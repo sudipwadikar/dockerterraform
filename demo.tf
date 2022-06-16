@@ -131,7 +131,7 @@ resource "aws_key_pair" "demokey" {
 }
 
 # Creating Instances
-resource "aws_instance" "demoinstance1" {
+resource "aws_instance" "Demo-Instance" {
 
   # AMI based on region 
   ami = "${lookup(var.ami, var.aws_region)}"
