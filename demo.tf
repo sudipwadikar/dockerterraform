@@ -8,6 +8,7 @@ resource "aws_instance" "Demo-Instance" {
     user     = "ec2-user"
     private_key = "${file(var.private_key)}"
   }
+}
   # Installing splunk & creating distributed indexer clustering on newly created instance
   provisioner "remote-exec" {
     inline = [
